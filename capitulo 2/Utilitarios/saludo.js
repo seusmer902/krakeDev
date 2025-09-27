@@ -1,6 +1,8 @@
 saludar = function(){
-    let nombre = recuperarTexto("txtNombre")
-    let apellido = recuperarTexto("txtApellido")
+    let nombre = recuperarTexto("txtNombre");
+    let apellido = recuperarTexto("txtApellido");
+    let edad = recuperarInt("txtEdad")
+    let estatura = recuperarFloat("txtEstatura")
 }
 
 recuperarTexto = function(idComponente){
@@ -8,4 +10,21 @@ recuperarTexto = function(idComponente){
     let valorIngresado;
     componente = document.getElementById(idComponente);
     valorIngresado = componente.value;
+    return valorIngresado;
+}
+
+recuperarInt = function(idComponente){
+    let valorCaja;
+    let valorEntero;
+    valorCaja = recuperarTexto(idComponente);
+    valorEntero = parseInt(valorCaja);
+    return valorEntero;
+}
+
+recuperarFloat = function(idComponente){
+    let valorCaja;
+    let valorFloat;
+    valorCaja = recuperarTexto(idComponente);
+    valorFloat = parseFloat(valorCaja);
+    return valorFloat;
 }
