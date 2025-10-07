@@ -1,36 +1,93 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="PuntoDeVenta.css"></script>
+        <link rel="stylesheet" href="PuntoDeVenta.css"/>
         <script src="puntoDeVenta.js"></script>
         <script src="serviciosPuntoDeVenta.js"></script>
-        <script src="utilitarios.js"></script>
+         <script src="utilitarios.js"></script>
     </head>
+
     <body>
-        <h3>Ingrese el nombre del producto</h3>
-        <input type="text" id="txtProducto"/>
+        <div class="principal">
+            <div class="logoEscuela">
+                <img src="./imagenes/logoKrakeDev.png" width="80%"/>
+            </div>
 
-        <h3>Ingrese la cantidad a comprar</h3>
-        <input type="text" id="txtCantidad"/>
+            <div class="contenido">
+                <div class="titulo">
+                    PUNTO DE VENTA 
+                </div>
 
-        <h3>Ingrese el precio del producto</h3>
-        <input type="text" id="txtPrecio"/>
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        Ingrese el nombre del producto
+                    </div>
+                    <input type="text" class="cajaTexto" id="txtProducto"/>
+                    <div class="error" id="lblError1"></div>
+                </div>
 
-        <h3>Ingrese el porcentaje de descuento</h3>
-        <input type="text" id="txtPorcentajeDescuento"/>
-        
-        <h3>Subtotal</h3>
-        <h3 id="lblSubtotal">0.0</h3>
-        <h3>Descuento</h3>
-        <h3 id="lblDescuento">0.0</h3>
-        <h3>IVA 12%</h3>
-        <h3 id="lblValorIVA">0.0</h3>
-        <h3>Total</h3>
-        <h3 id="lblTotal">0.0</h3>
-        <h3 id="lblResumen">Valor a pagar por --- --- con --% de descuento: USD --.--</h3>
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        Ingrese la cantidad a comprar
+                    </div>
+                    <input type="text" class="cajaTexto" id="txtCantidad"/>
+                    <div class="error" id="lblError2"></div>
+                </div>
 
-        <input type="button" value="CALCULAR TOTAL" onclick="calcularValorTotal();"/>
-        <input type="button" value="LIMPIAR" onclick="limpiar();"/>
-    
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        Ingrese el precio del producto
+                    </div>
+                    <input type="text" class="cajaTexto" id="txtPrecio"/>
+                    <div class="error" id="lblError3"></div>
+                </div>
+
+                <div class="botones">
+                    <div class="contenedorBoton">
+                        <input type="button" value="CALCULAR TOTAL" class="estiloBoton" onclick="calcularValorTotal();"/>
+                    </div>
+
+                    <div class="contenedorBoton">
+                        <input type="button" value="LIMPIAR" class="estiloBoton" onclick="limpiar();"/>
+                    </div>
+                </div>
+            </div>
+
+                <div class="areaResultado">
+                    <div class="resultado">
+                        <div>
+                            Subtotal:
+                        </div>
+                        <div id="lblSubtotal">
+                            0.0
+                        </div>
+                    </div>
+                    <div class="resultado">
+                        <div>
+                            Descuento:
+                        </div>
+                        <div id="txtPorcentajeDescuento">
+                            0.0
+                        </div>
+                    </div>
+                    <div class="resultado">
+                        <div>
+                            IVA 12%:
+                        </div>
+                        <div id="lblValorIVA">
+                            0.0
+                        </div>
+                    </div>
+                    <div class="resultado">
+                        <div>
+                            Total:
+                        </div>
+                        <div id="lblTotal">
+                            0.0
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body> 
 </html>
