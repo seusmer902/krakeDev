@@ -5,11 +5,22 @@ calcularSubtotal = function(precioProducto, cantidad){
     return total;
 }
 
-calcularValorDescuento = function(valorSubtotal, porcentajeDescuento){
-    let total;
+calcularValorDescuento = function(subtotal,cantidad){
+    let descuento;
+    let valorDescuento;
     
-    total = (valorSubtotal * porcentajeDescuento / 100);
-    return total;
+    if(cantidad<3){
+        descuento = 0
+    }else if(cantidad>3 && cantidad<5){
+        descuento = 0.03
+    }else if(cantidad>6 && cantidad<11){
+        descuento = 0.04
+    } else{
+        descuento = 0.05
+    }
+    valorDescuento = subtotal * descuento
+
+    return valorDescuento
 }
 
 calcularIVA = function(valorSubtotal, valorDescuento){
@@ -26,4 +37,12 @@ calcularTotal = function (valorSubtotal, valorDescuento, valorIVA){
     
     total = (valorSubtotal - valorDescuento + valorIVA);
     return total;
+}
+
+esPrecioValido = function (valor, idComponenteError) {
+    let hayErrores = false
+    if(isNaN(valor)){
+        mostrarTexto(idComponenteError,"CAMPO OBLIGATORIO")
+    }
+
 }
