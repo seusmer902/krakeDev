@@ -38,11 +38,61 @@ calcularTotal = function (valorSubtotal, valorDescuento, valorIVA){
     total = (valorSubtotal - valorDescuento + valorIVA);
     return total;
 }
+esProductoValido = function(nombre, idComponenteError) {
+  let hayErrores = false;
 
-esPrecioValido = function (valor, idComponenteError) {
-    let hayErrores = false
-    if(isNaN(valor)){
-        mostrarTexto(idComponenteError,"CAMPO OBLIGATORIO")
+    if(nombre.trim() == ""){
+        mostrarTexto(idComponenteError,"CAMPO OBLIGATORIO");
+        hayErrores = true;
     }
 
+    if(nombre.length > 10){
+        mostrarTexto(idComponenteError,"EL NOMBRE NO PUEDE TENER MAS DE 10 CARACTERES");
+        hayErrores = true;
+    }
+
+    if(hayErrores == false){
+        mostrarTexto(idComponenteError,"");
+    }
+    return !hayErrores;
+}
+
+esPrecioValido = function(precio, idComponenteError) {
+  let hayErrores = false;
+
+  if (isNaN(precio)) {
+    mostrarTexto(idComponenteError, "CAMPO OBLIGATORIO");
+    hayErrores = true;
+  }
+
+  if(precio < 0 || precio > 50){
+    mostrarTexto(idComponenteError,"EL PRECIO DEBE SER UN NUMERO ENTRE 0 y 50");
+    hayErrores = true;
+  }
+
+  if(hayErrores == false){
+    mostrarTexto(idComponenteError,"");
+  }
+
+  return !hayErrores;
+}
+
+
+esCantidadValida = function(cantidad, idComponenteError) {
+  let hayErrores = false;
+
+  if (isNaN(cantidad)) {
+    mostrarTexto(idComponenteError, "CAMPO OBLIGATORIO");
+    hayErrores = true;
+  }
+  
+  if(cantidad < 0 || cantidad > 100){
+    mostrarTexto(idComponenteError,"LA CANTIDAD DEBE SER UN NUMERO ENTRE 0 y 100")
+  }
+
+  if(hayErrores == false){
+    mostrarTexto(idComponenteError,"")
+  }
+
+  return !hayErrores;
 }

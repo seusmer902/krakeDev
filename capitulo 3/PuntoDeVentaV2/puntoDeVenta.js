@@ -5,21 +5,29 @@ calcularValorTotal = function () {
     let valorIVA;
     let valorTotal;
 
-    let nombreProducto = recuperarTexto("txtProducto");
+    let nombreProducto = recuperarTexto("txtProducto");    
     let precioProducto = recuperarFloat("txtPrecio");
-    let cantidad = recuperarInt("txtCantidad");
+    let cantidadPrducto = recuperarInt("txtCantidad");
 
-    valorSubtotal = calcularSubtotal(precioProducto, cantidad);
-    mostrarTexto("lblSubtotal", valorSubtotal);
+    let productoValido = esProductoValido(nombreProducto, "lblError1")
+    let precioValido = esPrecioValido(precioProducto, "lblError2")
+    let cantidadValida = esCantidadValida(cantidadPrducto, "lblError3")
 
-    valorDescuento = calcularValorDescuento(valorSubtotal, cantidad);
-    mostrarTexto("lblDescuento", valorDescuento);
+    if(productoValido && precioValido && cantidadValida){
 
-    valorIVA = calcularIVA(valorSubtotal, valorDescuento);
-    mostrarTexto("lblValorIVA", valorIVA);
+        valorSubtotal = calcularSubtotal(precioProducto, cantidadPrducto);
+        mostrarTexto("lblSubtotal", valorSubtotal);
 
-    valorTotal = calcularTotal(valorSubtotal, valorDescuento, valorIVA);
-    mostrarTexto("lblTotal", valorTotal);
+        valorDescuento = calcularValorDescuento(valorSubtotal, cantidadPrducto);
+        mostrarTexto("lblDescuento", valorDescuento);
+
+        valorIVA = calcularIVA(valorSubtotal, valorDescuento);
+        mostrarTexto("lblValorIVA", valorIVA);
+
+        valorTotal = calcularTotal(valorSubtotal, valorDescuento, valorIVA);
+        mostrarTexto("lblTotal", valorTotal);
+    }
+
 }
 
 limpiar = function(){
