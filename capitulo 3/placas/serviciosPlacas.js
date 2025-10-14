@@ -1,5 +1,5 @@
-validarEstructura = function(){
-    let placa = recuperarTexto("txtPlaca") ; 
+validarEstructura = function(placa){
+    
     let longitud = placa.length
 
     if (longitud >= 7 && longitud <= 8){
