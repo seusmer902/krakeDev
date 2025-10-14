@@ -1,5 +1,5 @@
 esMayuscula = function(caracter){
-  const codigo = caracter.charCodeAt(0);
+  let codigo = caracter.charCodeAt(0);
 
   if (codigo >= 65 && codigo <= 90) {
     return true;
@@ -10,7 +10,7 @@ esMayuscula = function(caracter){
 
 esDigito = function(caracter){
 
-  const codigo = caracter.charCodeAt(0);
+  let codigo = caracter.charCodeAt(0);
 
   if (codigo >= 48 && codigo <= 57) {
     return true;
@@ -19,9 +19,9 @@ esDigito = function(caracter){
   }
 }
 
-esGuion = function(caracter) {
+esGuion = function(caracter){
 
-  const codigo = caracter.charCodeAt(0);
+  let codigo = caracter.charCodeAt(0);
 
   if (codigo === 45) {
     return true;
