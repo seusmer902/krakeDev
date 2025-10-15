@@ -3,9 +3,11 @@ validarPlaca = function() {
     let erroresEstructura = validarEstructura(placa);
 
     if (erroresEstructura == null) {
-        console.log("ESTRUCTURA VÁLIDA");
+        console.log("ESTRUCTURA VALIDA");
+        mostrarTexto("lblValido","VALIDO")
+        mostrarTexto("lblError","")
     } else {
-        console.log("ESTRUCTURA INCORRECTA");
-        console.log(erroresEstructura);
+        mostrarTexto("lblError", erroresEstructura)
+        mostrarTexto("lblValido","")
     }
 }
