@@ -21,22 +21,22 @@ validarPlaca = function() {
             mostrarTexto("lblProvincia", "-");
         }
 
-        if (tipoVehiculo !== null) {
-            mostrarTexto("lblTipoVehiculo", tipoVehiculo);
-            mostrarTexto("lblValido", "VALIDO");
-            mostrarTexto("lblError", "");
-        } else {
-            mostrarTexto("lblError", "Tipo de vahiculo incorrecto");
-            mostrarTexto("lblValido", "");
-            mostrarTexto("lblTipoVehiculo", "-");
-        }
-
         if (picoYPLaca !== null) {
             mostrarTexto("lblPicoYPlca", picoYPLaca);
             mostrarTexto("lblValido", "VALIDO");
             mostrarTexto("lblError", "");
         } else {
             mostrarTexto("lblError", "Ultimo caracter invalido para pico y placa");
+            mostrarTexto("lblValido", "");
+            mostrarTexto("lblTipoVehiculo", "-");
+        }
+
+        if (tipoVehiculo !== null) {
+            mostrarTexto("lblTipoVehiculo", tipoVehiculo);
+            mostrarTexto("lblValido", "VALIDO");
+            mostrarTexto("lblError", "");
+        } else {
+            mostrarTexto("lblError", "Tipo de vahiculo incorrecto");
             mostrarTexto("lblValido", "");
             mostrarTexto("lblTipoVehiculo", "-");
         }
