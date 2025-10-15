@@ -52,38 +52,90 @@ validarEstructura = function(placa){
 
 obtenerProvincia = function(placa) {
 
-  if (!placa || placa.length === 0) {
-    return null;
-  }
+    if (!placa || placa.length === 0) {
+        return null;
+    }
 
-  let letra = placa.charAt(0);
+    let letra = placa.charAt(0);
 
-  let provincias = {
-    'A': 'Azuay',
-    'B': 'Bolívar',
-    'C': 'Carchi',
-    'E': 'Esmeraldas',
-    'G': 'Guayas',
-    'H': 'Chimborazo',
-    'I': 'Imbabura',
-    'J': 'Loja',
-    'K': 'Santo Domingo de los Tsáchilas',
-    'L': 'Los Ríos',
-    'M': 'Manabí',
-    'N': 'Napo',
-    'O': 'El Oro',
-    'P': 'Pichincha',
-    'Q': 'Orellana',
-    'R': 'Morona Santiago',
-    'S': 'Pastaza',
-    'T': 'Tungurahua',
-    'U': 'Sucumbíos',
-    'V': 'Galápagos',
-    'W': 'Cotopaxi',
-    'X': 'Santa Elena',
-    'Y': 'Zamora Chinchipe',
-    'Z': 'Cañar'
-  };
+    let provincias = {
+        'A': 'Azuay',
+        'B': 'Bolivar',
+        'C': 'Carchi',
+        'E': 'Esmeraldas',
+        'G': 'Guayas',
+        'H': 'Chimborazo',
+        'I': 'Imbabura',
+        'J': 'Loja',
+        'K': 'Santo Domingo de los Tsachilas',
+        'L': 'Los Rios',
+        'M': 'Manabi',
+        'N': 'Napo',
+        'O': 'El Oro',
+        'P': 'Pichincha',
+        'Q': 'Orellana',
+        'R': 'Morona Santiago',
+        'S': 'Pastaza',
+        'T': 'Tungurahua',
+        'U': 'Sucumbíos',
+        'V': 'Galapagos',
+        'W': 'Cotopaxi',
+        'X': 'Santa Elena',
+        'Y': 'Zamora Chinchipe',
+        'Z': 'Canar'
+    };
 
   return provincias[letra] || null;
+};
+
+obtenerTipoVehiculo = function(placa) {
+
+    if (!placa || placa.length < 2) {
+        return null;
+    }
+
+    const letra = placa.charAt(1).toUpperCase();
+
+    const tiposVehiculo = {
+        'A': 'Vehiculo comercial o de alquiler',
+        'E': 'Vehiculo del Estado',
+        'M': 'Vehiculo municipal',
+        'O': 'Vehiculo oficial',
+        'P': 'Vehiculo particular',
+        'S': 'Vehiculo del gobierno provincial',
+        'T': 'Taxi o transporte publico',
+        'U': 'Vehiculo de uso diplomatico',
+    };
+
+    return tiposVehiculo[letra] || null;
+};
+
+obtenerDiaPicoYPlaca = function(placa) {
+
+    if (!placa || placa.length === 0) {
+        return null;
+    }
+
+    const ultimoCaracter = placa.charAt(placa.length - 1);
+
+    if (isNaN(ultimoCaracter)) {
+     return null;
+    }
+
+    const numero = parseInt(ultimoCaracter);
+
+    const diasPicoYPlaca = {
+        1: "Lunes",
+        2: "Lunes",
+        3: "Martes",
+        4: "Martes",
+        5: "Miercoles",
+        6: "Miercoles",
+        7: "Jueves",
+        8: "Jueves",
+        9: "Viernes",
+        0: "Viernes"
+    };
+
+    return diasPicoYPlaca[numero] || "Libre circulación";
 };
