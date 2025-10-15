@@ -27,19 +27,19 @@ validarEstructura = function(placa){
         errores += "El cuarto caracter debe ser un guion (-). ";
     }
     if (c5 < "0" || c5 > "9") {
-        errores += "El quinto caracter debe ser un dígito. ";
+        errores += "El quinto caracter debe ser un digito. ";
     }
     if (c6 < "0" || c6 > "9") {
-        errores += "El sexto caracter debe ser un dígito. ";
+        errores += "El sexto caracter debe ser un digito. ";
     }
     if (c7 < "0" || c7 > "9") {
-        errores += "El séptimo caracter debe ser un dígito. ";
+        errores += "El septimo caracter debe ser un digito. ";
     }
 
     if (longitud == 8) {
         let c8 = placa[7];
         if (c8 < "0" || c8 > "9") {
-            errores += "El octavo caracter debe ser un dígito. ";
+            errores += "El octavo caracter debe ser un digito. ";
         }
     }
 
@@ -49,3 +49,41 @@ validarEstructura = function(placa){
         return errores;
     }
 }
+
+obtenerProvincia = function(placa) {
+
+  if (!placa || placa.length === 0) {
+    return null;
+  }
+
+  let letra = placa.charAt(0);
+
+  let provincias = {
+    'A': 'Azuay',
+    'B': 'Bolívar',
+    'C': 'Carchi',
+    'E': 'Esmeraldas',
+    'G': 'Guayas',
+    'H': 'Chimborazo',
+    'I': 'Imbabura',
+    'J': 'Loja',
+    'K': 'Santo Domingo de los Tsáchilas',
+    'L': 'Los Ríos',
+    'M': 'Manabí',
+    'N': 'Napo',
+    'O': 'El Oro',
+    'P': 'Pichincha',
+    'Q': 'Orellana',
+    'R': 'Morona Santiago',
+    'S': 'Pastaza',
+    'T': 'Tungurahua',
+    'U': 'Sucumbíos',
+    'V': 'Galápagos',
+    'W': 'Cotopaxi',
+    'X': 'Santa Elena',
+    'Y': 'Zamora Chinchipe',
+    'Z': 'Cañar'
+  };
+
+  return provincias[letra] || null;
+};
