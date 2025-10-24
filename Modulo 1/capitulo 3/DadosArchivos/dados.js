@@ -1,30 +1,29 @@
-jugar = function(){
-    let aleatorio;
-    
-    aleatorio = lanzarDado();
-    cambiarTexto("lblNumero",aleatorio);
-    if(aleatorio>3){
-        console.log("ES MAYOR A 3");
-        console.log("GANATES")
+jugar = function () {
+  let aleatorio;
 
-    }else{
-        console.log("ES MENOR A 3");
-        console.log("PERDISTE")
-    }
-}
+  aleatorio = lanzarDado();
+  cambiarTexto("lblNumero", aleatorio);
+  if (aleatorio > 3) {
+    console.log("ES MAYOR A 3");
+    console.log("GANATES");
+  } else {
+    console.log("ES MENOR A 3");
+    console.log("PERDISTE");
+  }
+};
 
-lanzarDado = function(){
-    let aleatorio;
-    let numeroMultiplicado;
-    let numeroEntero;
-    let valorDado;
+lanzarDado = function () {
+  let aleatorio;
+  let numeroMultiplicado;
+  let numeroEntero;
+  let valorDado;
 
-    aleatorio = Math.random();
-    numeroMultiplicado = aleatorio*6;
+  aleatorio = Math.random();
+  numeroMultiplicado = aleatorio * 6;
 
-    numeroEntero = parseInt(numeroMultiplicado);
+  numeroEntero = parseInt(numeroMultiplicado);
 
-    valorDado = numeroEntero+1;
+  valorDado = numeroEntero + 1;
 
-    return valorDado;
-}
+  return valorDado;
+};
